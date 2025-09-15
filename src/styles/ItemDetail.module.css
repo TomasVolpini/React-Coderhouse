@@ -1,0 +1,44 @@
+.detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.item-right {
+    width: 40%;
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.item-thumbnail {
+    width: 500px;
+}
+
+.item-title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.item-price {
+    color: blue;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.link {
+    background-color: blue;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    display: block;
+    font-size: large;
+}
+
+.link:hover {
+    background-color: lightskyblue;
+}

@@ -1,0 +1,41 @@
+.item-card {
+    width: 150px;
+    border: solid gray 1px;
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.item-thumbnail {
+    width: 100%;
+}
+
+.item-title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.item-price {
+    color: blue;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.link {
+    background-color: blue;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    display: block;
+    font-size: large;
+}
+
+.link:hover {
+    background-color: lightskyblue;
+}
