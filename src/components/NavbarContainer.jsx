@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useEffect, useState, useParams } from "react";
+import { useNavigate, useLocation } from "react-router";
 import Navbar from "./Navbar";
+import { getCategories } from "../firebase/db";
 
 export default function NavbarContainer() {
   const [categs, setCateg] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products/category-list")
-      .then((res) => res.json())
-      .then((data) => setCateg(data));
+    getCategories().then((data) => setCateg(data));
   }, []);
+
+  const location = useLocation();
+  const isDetailPage = location.pathname.startsWith("/item/");
 
   const handleChange = (e) => {
     const selected = e.target.value;
@@ -21,5 +23,16 @@ export default function NavbarContainer() {
     }
   };
 
-  return <Navbar categs={categs} onChange={handleChange}></Navbar>;
+  function handleClick() {
+    navigate(`/`);
+  }
+
+  return (
+    <Navbar
+      categs={categs}
+      onChange={handleChange}
+      onClick={handleClick}
+      isDetailPage={isDetailPage}
+    ></Navbar>
+  );
 }

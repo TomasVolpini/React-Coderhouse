@@ -42,3 +42,7 @@
 .link:hover {
     background-color: lightskyblue;
 }
+
+.item-desc {
+    white-space: pre-line;
+}

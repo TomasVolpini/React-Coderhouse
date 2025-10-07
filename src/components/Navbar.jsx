@@ -1,22 +1,14 @@
 import CartWidget from "./CartWidget";
+import CategoryList from "./CategoryList";
+import { useLocation } from "react-router";
 
-export default function Navbar({ categs, onChange }) {
+export default function Navbar({ categs, onChange, onClick, isDetailPage }) {
   return (
     <nav>
-      <div>Tiendita Genérica</div>
-      <select
-        name="categs"
-        id="categs"
-        defaultValue="defect"
-        onChange={onChange}
-      >
-        <option value="defect">Elija una categoría</option>
-        {categs.map((categ) => (
-          <option key={categ} value={categ}>
-            {categ}
-          </option>
-        ))}
-      </select>
+      <div id="nav-logo" onClick={onClick}>
+        Tiendita Genérica
+      </div>
+      {!isDetailPage && <CategoryList categs={categs} onChange={onChange} />}
       <CartWidget />
     </nav>
   );

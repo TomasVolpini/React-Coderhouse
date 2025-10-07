@@ -13,6 +13,10 @@ nav {
   font-weight: bold;
 }
 
+#nav-logo {
+  cursor: pointer;
+}
+
 nav ul {
   display: flex;
 }
