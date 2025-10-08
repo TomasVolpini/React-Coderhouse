@@ -12,7 +12,8 @@ export default function NavbarContainer() {
   }, []);
 
   const location = useLocation();
-  const isDetailPage = location.pathname.startsWith("/item/");
+  const showElement =
+    location.pathname === "/" || location.pathname.startsWith("/category");
 
   const handleChange = (e) => {
     const selected = e.target.value;
@@ -32,7 +33,7 @@ export default function NavbarContainer() {
       categs={categs}
       onChange={handleChange}
       onClick={handleClick}
-      isDetailPage={isDetailPage}
+      showElement={showElement}
     ></Navbar>
   );
 }

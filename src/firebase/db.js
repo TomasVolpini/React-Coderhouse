@@ -7,6 +7,7 @@ import {
   getDocs,
   query,
   where,
+  addDoc,
 } from "firebase/firestore";
 
 const db = getFirestore(app);
@@ -57,4 +58,14 @@ export async function getCategories() {
   });
 
   return categories;
+}
+
+export async function createOrder(order) {
+  try {
+    const docRef = await addDoc(collection(db, "orders"), order);
+    return docRef; // Devuelve el objeto con .id
+  } catch (err) {
+    console.error(`Oops, error: ${err.code}`);
+    throw err;
+  }
 }

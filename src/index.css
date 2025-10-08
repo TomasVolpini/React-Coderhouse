@@ -4,6 +4,14 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+button {
+  all: unset;
+  cursor: pointer;
+  padding: 1rem;
+  border: 2px solid blue;
+  border-radius: 0.5rem;
+}
+
 nav {
   display: flex;
   justify-content: space-around;

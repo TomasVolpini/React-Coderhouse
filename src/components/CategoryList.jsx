@@ -7,7 +7,7 @@ export default function CategoryList({ categs, onChange }) {
         defaultValue="defect"
         onChange={onChange}
       >
-        <option value="defect">Elija una categoría</option>
+        <option value="defect"> - Filter by category -</option>
         {categs.map((categ) => (
           <option key={categ.id} value={categ.category}>
             {categ.title}

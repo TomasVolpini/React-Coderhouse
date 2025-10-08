@@ -8,7 +8,7 @@ export default function ItemCard({ items }) {
       <p className={styles["item-title"]}>{item.name}</p>
       <p className={styles["item-price"]}>${item.price}</p>
       <Link className={styles["link"]} to={`/item/${item.id}`}>
-        Ver más
+        See more
       </Link>
     </div>
   ));
