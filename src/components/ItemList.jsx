@@ -1,11 +1,10 @@
 import ItemCard from "./ItemCard";
-import ContenedorFlex from "./ContenedorFlex";
+import styles from "../styles/ItemCard.module.css";
 
 export default function ItemList({ items }) {
-
   return (
-    <ContenedorFlex>
-        <ItemCard items={items}></ItemCard>
-    </ContenedorFlex>
+    <div className={styles["item-list"]}>
+      <ItemCard items={items}></ItemCard>
+    </div>
   );
 }
