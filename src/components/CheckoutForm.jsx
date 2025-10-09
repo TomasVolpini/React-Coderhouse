@@ -1,43 +1,6 @@
-import { serverTimestamp } from "firebase/firestore";
-import { createOrder } from "../firebase/db";
-import { useContext } from "react";
-import { CartContext } from "./CartContext";
-import { useNavigate } from "react-router";
-import toast from "react-hot-toast";
 import styles from "../styles/CheckoutContainer.module.css";
 
-export default function CheckoutForm() {
-  const { cart, cartTotal, clearCart } = useContext(CartContext);
-  const navigate = useNavigate();
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const phone = form.phone.value;
-
-    const order = {
-      buyer: { name, email, phone },
-      total: cartTotal(),
-      items: cart,
-      date: serverTimestamp(),
-    };
-
-    const orderPromise = createOrder(order);
-    toast.promise(orderPromise, {
-      loading: "Order in process...",
-      success: (orderData) => (
-        <b>Your order has been processed! Your code is: {orderData.id}</b>
-      ),
-      error: <b>Something went wrong, please try again</b>,
-    });
-    const orderResult = await orderPromise;
-    if (orderResult) {
-      clearCart();
-      navigate("/checkout-success");
-    }
-  };
-
+export default function CheckoutForm({ handleSubmit }) {
   return (
     <form className={styles.checkoutForm} onSubmit={handleSubmit}>
       <h2 className={styles.title}>Checkout</h2>
