@@ -46,10 +46,10 @@ Para ejecutar el proyecto localmente:
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/TomasVolpini/JS-Entrega-final.git
+git clone https://github.com/TomasVolpini/React-Coderhouse.git
 
 # 2. Entrar al directorio del proyecto
-cd JS-Entrega-final
+cd React-Coderhouse
 
 # 3. Instalar dependencias
 npm install
