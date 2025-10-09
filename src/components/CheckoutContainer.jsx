@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
 import CheckoutForm from "./CheckoutForm";
+import styles from "../styles/CheckoutContainer.module.css";
 
 export default function CheckoutContainer() {
   const { cart } = useContext(CartContext);
@@ -41,5 +42,9 @@ export default function CheckoutContainer() {
     );
   }
 
-  return <CheckoutForm></CheckoutForm>;
+  return (
+    <div className={styles["checkout-container"]}>
+      <CheckoutForm></CheckoutForm>
+    </div>
+  );
 }

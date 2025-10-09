@@ -1,13 +1,19 @@
-import styles from "../styles/ItemDetail.module.css";
+import styles from "../styles/ItemCounter.module.css";
 
 export default function ItemCounter({ count, handleAdd, handleSub, limit }) {
   return (
     <div className={styles["item-counter"]}>
-      <button onClick={handleSub} disabled={count === limit}>
+      <button
+        className={styles["counter-button"]}
+        onClick={handleSub}
+        disabled={count === limit}
+      >
         -
       </button>
       <div>{count}</div>
-      <button onClick={handleAdd}>+</button>
+      <button className={styles["counter-button"]} onClick={handleAdd}>
+        +
+      </button>
     </div>
   );
 }

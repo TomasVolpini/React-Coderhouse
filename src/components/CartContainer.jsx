@@ -10,11 +10,11 @@ export default function CartContainer() {
     useContext(CartContext);
 
   const handleAdd = (item) => {
-    addToCart({ ...item, count: 1 }); // suma 1
+    addToCart({ ...item, count: 1 });
   };
 
   const handleSub = (item) => {
-    addToCart({ ...item, count: -1 }); // resta 1
+    addToCart({ ...item, count: -1 });
   };
 
   const handleTrash = (item) => {
@@ -25,34 +25,51 @@ export default function CartContainer() {
 
   if (cart.length === 0) {
     return (
-      <>
+      <div className={styles["cart-container"]}>
         <div>Cart is empty</div>
-        <button onClick={() => navigate("/")}>Go back</button>
-      </>
+        <div>
+          <button onClick={() => navigate("/")}>Go back</button>
+        </div>
+      </div>
     );
   }
 
   const total = cartTotal();
 
   return (
-    <>
+    <div className={styles["cart-container"]}>
       {cart.map((item) => (
-        <div key={item.id}>
-          <img src={item.img} className={styles["item-thumbnail"]}></img>
-          <div>{item.name}</div>
-          <div>${item.price * item.count}</div>
-          <ItemCounter
-            count={item.count}
-            handleAdd={() => handleAdd(item)}
-            handleSub={() => handleSub(item)}
-            limit={0}
-          ></ItemCounter>
-          <button onClick={() => handleTrash(item)}>Trash</button>
+        <div className={styles["cart-card"]} key={item.id}>
+          <div className={styles["cart-card-img"]}>
+            <img src={item.img} className={styles["item-thumbnail"]}></img>
+          </div>
+          <div className={styles["cart-card-info"]}>
+            <div className={styles["cart-card-info-name"]}>{item.name}</div>
+            <div className={styles["cart-card-info-price"]}>
+              ${item.price * item.count}
+            </div>
+          </div>
+          <div className={styles["cart-card-buttons"]}>
+            <ItemCounter
+              count={item.count}
+              handleAdd={() => handleAdd(item)}
+              handleSub={() => handleSub(item)}
+              limit={0}
+            ></ItemCounter>
+            <button
+              className={styles["cart-card-buttons-button"]}
+              onClick={() => handleTrash(item)}
+            >
+              Remove item
+            </button>
+          </div>
         </div>
       ))}
-      <div>{total}</div>
-      <button onClick={clearCart}>Trash all</button>
-      <button onClick={() => navigate("/checkout")}>Go to checkout</button>
-    </>
+      <div className={styles["cart-total"]}> Total ${total}</div>
+      <div className={styles["cart-buttons"]}>
+        <button onClick={clearCart}>Remove all items</button>
+        <button onClick={() => navigate("/checkout")}>Go to checkout</button>
+      </div>
+    </div>
   );
 }

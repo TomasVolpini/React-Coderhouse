@@ -1,0 +1,18 @@
+.item-counter {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counter-button {
+    padding: 1rem;
+    border-radius: 2rem;
+    aspect-ratio: 1;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}

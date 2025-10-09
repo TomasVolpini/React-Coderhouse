@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
+import styles from "../styles/CheckoutContainer.module.css";
 
 export default function CheckoutForm() {
   const { cart, cartTotal, clearCart } = useContext(CartContext);
@@ -38,23 +39,27 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input name="name" type="text" required />
-      </label>
+    <form className={styles.checkoutForm} onSubmit={handleSubmit}>
+      <h2 className={styles.title}>Checkout</h2>
 
-      <label>
-        Email:
-        <input name="email" type="email" required />
-      </label>
+      <div className={styles.field}>
+        <label htmlFor="name">Name</label>
+        <input id="name" name="name" type="text" required />
+      </div>
 
-      <label>
-        Phone:
-        <input name="phone" type="tel" required />
-      </label>
+      <div className={styles.field}>
+        <label htmlFor="email">Email</label>
+        <input id="email" name="email" type="email" required />
+      </div>
 
-      <button type="submit">Submit Order</button>
+      <div className={styles.field}>
+        <label htmlFor="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" required />
+      </div>
+
+      <button type="submit" className={styles.submitButton}>
+        Submit Order
+      </button>
     </form>
   );
 }

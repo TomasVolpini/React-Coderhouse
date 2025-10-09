@@ -21,7 +21,9 @@ export default function ItemDetail({
           handleAdd={handleAdd}
           limit={1}
         ></ItemCounter>
-        <button onClick={handleAddToCart}>Add to cart</button>
+        <div>
+          <button onClick={handleAddToCart}>Add to cart</button>
+        </div>
       </div>
     </div>
   );

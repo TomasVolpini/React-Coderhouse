@@ -8,7 +8,6 @@ button {
   all: unset;
   cursor: pointer;
   padding: 1rem;
-  border: 2px solid blue;
   border-radius: 0.5rem;
 }
 
@@ -16,7 +15,7 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: lightblue;
+  background-color: gray;
   padding: 1.5rem;
   font-weight: bold;
 }
@@ -32,4 +31,41 @@ nav ul {
 nav ul li {
   list-style-type: none;
   margin-right: 1rem;
+}
+
+
+select {
+  appearance: none;
+
+  background-color: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  font-size: 1rem;
+  color: #1e293b;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  max-width: 300px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%231e293b" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+}
+
+select:hover {
+  border-color: #cbd5e1;
+  background-color: #f1f5f9;
+}
+
+
+select option {
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+button {
+  background-color: gray;
 }
