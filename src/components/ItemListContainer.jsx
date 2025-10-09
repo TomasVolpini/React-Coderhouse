@@ -5,13 +5,27 @@ import { getAllProducts, getProductsByCat } from "../firebase/db";
 
 export default function ItemListContainer() {
   const [items, setItem] = useState([]);
+  const [isLoading, setLoading] = useState(true);
   const { categ } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     categ
-      ? getProductsByCat(categ).then((data) => setItem(data))
-      : getAllProducts().then((data) => setItem(data));
+      ? getProductsByCat(categ)
+          .then((data) => setItem(data))
+          .finally(() => setLoading(false))
+      : getAllProducts()
+          .then((data) => setItem(data))
+          .finally(() => setLoading(false));
   }, [categ]);
 
-  return <ItemList items={items}></ItemList>;
+  return (
+    <>
+      {isLoading ? (
+        <p>Loading products...</p>
+      ) : (
+        <ItemList items={items}></ItemList>
+      )}
+    </>
+  );
 }
